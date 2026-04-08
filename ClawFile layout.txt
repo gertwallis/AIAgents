@@ -1,0 +1,83 @@
+~/.openclaw/
+├── openclaw.json                    # Gateway config (all agents, bindings, cron)
+├── cron/                            # Persisted cron job definitions
+├── agents/
+│   ├── tepper/
+│   │   ├── agent/                   # Auth profiles, model registry
+│   │   └── sessions/                # Chat history + routing state
+│   ├── marco/
+│   │   ├── agent/
+│   │   └── sessions/
+│   ├── graham/
+│   │   ├── agent/
+│   │   └── sessions/
+│   ├── cipher/
+│   │   ├── agent/
+│   │   └── sessions/
+│   ├── axe/
+│   │   ├── agent/
+│   │   └── sessions/
+│   ├── volt/
+│   │   ├── agent/
+│   │   └── sessions/
+│   └── sentinel/
+│       ├── agent/
+│       └── sessions/
+├── workspace-tepper/                # Tepper's workspace
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   ├── AGENTS.md
+│   ├── USER.md
+│   └── skills/
+├── workspace-marco/                 # Marco's workspace
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+├── workspace-graham/
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+├── workspace-cipher/
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+├── workspace-axe/
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+├── workspace-volt/
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+├── workspace-sentinel/
+│   ├── SOUL.md
+│   ├── HEARTBEAT.md
+│   └── skills/
+└── shared/                          # THE SHARED STATE LAYER
+    ├── portfolio/
+    │   ├── positions.json           # Current open positions (Sentinel writes, all read)
+    │   ├── pnl.json                 # Running P&L (Sentinel writes)
+    │   ├── exposure.json            # Portfolio exposure by asset, sector (Sentinel writes)
+    │   └── cash.json                # Available capital (Sentinel writes)
+    ├── signals/
+    │   ├── macro/                   # Marco's output
+    │   │   └── latest.json          # Latest macro regime assessment
+    │   ├── equity/                  # Graham's output
+    │   │   └── latest.json          # Latest equity research
+    │   ├── crypto/                  # Cipher's output
+    │   │   └── latest.json          # Latest crypto/on-chain analysis
+    │   └── risk/                    # Sentinel's output
+    │       └── latest.json          # Latest risk assessment
+    ├── trade_ideas/
+    │   ├── pending/                 # New ideas awaiting review
+    │   ├── approved/                # Tepper-approved, awaiting execution
+    │   ├── rejected/                # Rejected with reason
+    │   └── executed/                # Completed trades (archive)
+    ├── trade_log/
+    │   └── log.jsonl                # Append-only trade log (NEVER overwrite)
+    ├── alerts/
+    │   ├── webhooks/                # Incoming TradingView webhook payloads
+    │   └── urgent/                  # High-priority alerts for immediate processing
+    └── briefings/
+        ├── morning.md               # Daily morning briefing (Tepper generates)
+        └── eod.md                   # End-of-day summary (Tepper generates)
